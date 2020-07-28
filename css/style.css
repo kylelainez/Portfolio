@@ -1,0 +1,347 @@
+:root{
+    font-size: 16px;
+    --color-1: #0B0C10;
+    --color-2: #1F2833;
+    --color-3: #C5C6C7;
+    --color-4: #66FCF1;
+    --color-5: #45A29E;
+    --color-6: #7536ff;
+    --color-7: #e31b6d;
+    font-family: 'Europa', sans-serif;
+    font-style: normal;
+}
+body{
+    margin: 0;
+    padding: 0;
+}
+
+
+/* Home */
+.intro{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+}
+.intro-paragraph{
+    color:var(--color-2);
+    font-size: 2.5rem;
+    text-align: center;
+}
+.myName{
+    color: var(--color-6);
+}
+
+/* Navigation */
+header{
+    display: flex;
+    justify-content: flex-start;
+    overflow: hidden;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+nav{ 
+    height: 1.75rem;
+    padding-bottom: 2rem;
+}
+.nav-ul{
+    max-width: 1200px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+    padding-left: 12vw;
+}
+li a{
+    font-size: 1.75rem;
+    text-decoration: none;
+    color: var(--color-2);
+    justify-self: center;
+}
+li a:visited{
+    color: var(--color-2);
+}
+
+li a:hover{
+    transition: ease-in-out, 300ms;
+    color: var(--color-6);
+    border-bottom: 4px solid var(--color-6);
+}
+
+.content{
+    display: flex;
+    flex-flow: column;
+    width: 100%;
+    padding-left: 0;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+
+/* Flex Classes */
+.flex{
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    max-width: 1200px;
+    padding: 20px 150px;
+    width: 100%;
+}
+.flex-col{
+    display: flex;
+    flex-flow: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}   
+.flex-no-pad{
+    padding: 0;
+}   
+.justify{
+    justify-content: space-between;
+}
+.center-col{
+    align-items: center;
+    justify-content: flex-start;
+}
+.center-row{
+    align-items: flex-start;
+    justify-content: center;
+}
+
+
+/* About Section */
+h1{
+    font-size: 3rem;
+    text-align:center;
+    flex: 100%;
+}
+.myImage{
+    width: 350px;
+    height: 100%;
+}
+.aboutMe{
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    line-height: 2rem;
+    padding-left: 2rem;
+}
+.thumbnail{
+    width: 100px;
+    height: 100px;
+}
+.intern{
+    padding-right: 4rem;
+}
+.educ{
+    padding-left: 2rem;
+}
+.title{
+    color: var(--color-6);
+    font-size: 1.5rem;
+    padding-bottom: 30px;
+    padding-top: 20px;
+}
+b{
+    font-size: 1.3rem;
+}
+
+
+/* Skills */
+
+.height{
+    height: 400px;
+}
+.width{
+    width: 400px;
+}
+.text{
+    line-height: 2rem;
+    font-size: 1.2rem;
+    list-style: none;
+    padding: 0;
+}
+.border{
+    background-color: white;
+    border-radius: 6px;
+    box-shadow: 0 5px 5px 0 rgba(233, 240, 243, 0.5), 0 0 0 1px #E6ECF8;
+    color: #141c3a;
+    padding: 0px;
+    margin: 0px 130px;
+}
+.border-left{
+    border-left: 1px solid #E6ECF8;
+}
+
+
+/* Projects */
+#projects{
+    padding-bottom: 150px;
+}
+.description{
+    color: rgba(97,84,89,1);
+    padding-bottom: 2rem;
+}
+.project-name{
+    font-size: 1.3rem;
+    padding-right: 1rem;
+    padding-bottom: 0.5rem;
+    color: #292830;
+}
+svg{
+    height: 20px;
+    width: 20px;
+    fill: #FFF;
+    transition: ease-in-out, 500ms; 
+    padding-left: 1px;
+    padding-top: 2px;
+}
+.circle{
+    background-color: var(--color-6);
+    height: 23px;
+    width: 23px;
+    border-radius: 50%;
+    margin-bottom: 5px;
+    transition: ease-in-out, 300ms;
+}
+.circle:hover{
+    background-color: #FFF;
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+}
+.circle:hover svg{
+    fill: var(--color-6);
+}
+
+
+/* Contact Me */
+#contact{
+    background-color: var(--color-6);
+}
+.contact-title{
+    color: #FFF;
+}
+.circle-border{
+    border-radius: 100%;
+    border: 2px solid white;
+    background-color: transparent;
+    height: 38px;
+    width: 38px;
+    transition: ease-in-out 300ms;
+    margin: 0px 10px;
+}
+.circle-border:hover{
+    background-color: white;
+}
+.circle-border:hover svg{
+    fill: var(--color-6);
+}
+.contact-svg-git{
+    height: 30px;
+    width: 30px;
+    padding-left: 3px;
+    padding-top: 4px;
+}
+.contact-svg-in{
+    height: 25px;
+    width: 25px;
+    padding-left: 7px;
+    padding-top: 5px;
+}
+.contact-svg-email{
+    height: 28px;
+    width: 28px;
+    padding-left: 5px;
+    padding-top: 5px;
+}
+.contact-icons{
+    max-width: 1200px;
+    width: 100px;
+}
+.contact-me-button{
+    border: 2px solid white;
+    border-radius: 50px;
+    padding: 9px 0px;
+    transition: ease-in-out 300ms;
+    cursor: pointer;
+    margin-bottom: 30px;
+    margin-top: 0;
+}
+.send{
+    padding: 8px 35px;
+    text-decoration: none;
+    color: white;
+    font-size: 1.3rem;
+}
+.send:visited{
+    color: white;
+}
+.contact-me-button:hover{
+    background-color: white;
+}
+.contact-me-button:hover .send{
+    color: var(--color-6);
+}
+.copyright{
+    color: white;
+}
+#contact-form{
+    display: none;
+    max-width: 1200px;
+}
+#form{
+    border-radius: 20px;
+    background-color: white;
+    max-width: 1000px;
+}
+#name, #email, #message{
+    padding: 0.5rem 0.7rem;
+    height: 1.5rem;
+    font-size: 1.2rem;
+    border: 2px solid #E6ECF8;
+}
+textarea{
+    resize: none;
+    font-family: inherit;
+}
+label{
+    padding-bottom: 10px;
+    color: #1F1F1F;
+}
+input:focus, textarea:focus{
+    outline: 1px solid var(--color-6);
+}
+.holder{
+    width: 300px;
+    padding: 30px;
+}
+#message{
+    width: 600px;
+}
+#message-div{
+    padding: 0 30px 0 30px;
+    
+}
+#name-email{
+    max-width: 900px;
+    width: 100%;
+    padding: 0;
+}
+#submit, button{
+    margin: 20px 0px 20px 0px;
+    background-color: white;
+    border: 2px solid var(--color-6);
+    border-radius: 10000px;
+    padding: 10px;
+    width: 150px;
+    cursor: pointer;
+    font-size: 1rem;
+    color: var(--color-6);
+    transition: ease-in-out 300ms;
+}
+#submit:hover, button:hover{
+    background-color: var(--color-6);
+    color: white;
+}
