@@ -35,12 +35,14 @@ body{
 }
 
 /* Navigation */
-header{
+.header{
     display: flex;
     justify-content: flex-start;
     overflow: hidden;
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
+    border-bottom: 4px solid var(--color-6);
+    background-color: white;
+    width: 100%;
+    z-index: 1;
 }
 nav{ 
     height: 1.75rem;
@@ -79,6 +81,14 @@ li a:hover{
     align-items: center;
     width: 100%;
 }
+.sticky{
+    position: fixed;
+    top:0;
+    width: 100%;
+}
+.sticky + .content {
+    padding-top: 60px;
+  }
 
 
 /* Flex Classes */
@@ -117,16 +127,22 @@ h1{
     font-size: 3rem;
     text-align:center;
     flex: 100%;
+    padding-bottom: 0;
+    margin-bottom: 0;
 }
 .myImage{
     width: 350px;
     height: 100%;
+    position: relative;
+    visibility: hidden;
 }
 .aboutMe{
+    position: relative;
     font-size: 1.2rem;
     letter-spacing: 2px;
     line-height: 2rem;
     padding-left: 2rem;
+    visibility: hidden;
 }
 .thumbnail{
     width: 100px;
@@ -146,6 +162,10 @@ h1{
 }
 b{
     font-size: 1.3rem;
+}
+.education{
+    position: relative;
+    visibility: hidden;
 }
 
 
@@ -284,12 +304,16 @@ svg{
 .contact-me-button:hover .send{
     color: var(--color-6);
 }
+
 .copyright{
     color: white;
 }
 #contact-form{
-    display: none;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.5s linear;
     max-width: 1200px;
+    display: none;
 }
 #form{
     border-radius: 20px;
@@ -340,8 +364,47 @@ input:focus, textarea:focus{
     font-size: 1rem;
     color: var(--color-6);
     transition: ease-in-out 300ms;
+
 }
 #submit:hover, button:hover{
     background-color: var(--color-6);
     color: white;
+}
+.bottom-line{
+    width: 30px;
+    border-bottom: 4px solid white;
+    padding-top: 10px;
+    margin-bottom: 40px;
+    position: relative;
+    visibility: hidden;
+}
+.black-line{
+    border-color: black;
+}
+.visible{
+    visibility: visible;
+}
+@keyframes panel-right-animation{
+    from{
+        right: -300px;
+    }
+    to{
+        right: 0;
+    }
+}
+@keyframes panel-left-animation{
+    from{
+        left: -300px;
+    }
+    to{
+        left: 0;
+    }
+}
+@keyframes fade-in{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
 }
