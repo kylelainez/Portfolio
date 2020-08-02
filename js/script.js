@@ -12,6 +12,7 @@ const skills = document.querySelector("#skills");
 const projects = document.querySelector("#projects");
 const contact = document.querySelector("#contact");
 const underline = document.querySelectorAll("div .anim")
+const skillTable = document.querySelector("#skill-table");
 // Y Offsets
 const navSticky = navBar.offsetTop;
 const aboutMeY = aboutMe.offsetTop;
@@ -20,7 +21,7 @@ const aboutY = about.offsetTop;
 const skillsY = skills.offsetTop;
 const projectsY = projects.offsetTop;
 const contactY = contact.offsetTop;
-
+const skillTableY = skillTable.offsetTop;
 
 contactButton.addEventListener("click",()=>{
     form.style.visibility = "visible";
@@ -77,6 +78,7 @@ const checkY = ()=>{
         underline[1].style.visibility = "visible";   
         underline[1].style.animation = "panel-right-animation 1s ease, fade-in 2s ease";
     }
+    
     if(window.pageYOffset >= skillsY - 800){
         underline[2].style.visibility = "visible";   
         underline[2].style.animation = "panel-left-animation 1s ease, fade-in 2s ease";
@@ -94,6 +96,10 @@ const checkY = ()=>{
         underline[6].style.animation = "panel-left-animation 1s ease, fade-in 2s ease";
         underline[7].style.visibility = "visible";   
         underline[7].style.animation = "panel-right-animation 1s ease, fade-in 2s ease";
+    }
+    if(window.pageYOffset >= skillTableY - 800){
+        skillTable.style.visibility = "visible";
+        skillTable.style.animation = "fade-in 2s ease";
     }
 }
 window.addEventListener('scroll', checkY);
