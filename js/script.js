@@ -1,8 +1,4 @@
 // Elements
-const contactButton = document.querySelector("#button");
-const closeButton = document.querySelector("#close");
-const form = document.querySelector("#contact-form");
-const textArea = document.querySelector("#message");
 const navBar = document.querySelector("#nav-bar")
 const aboutMe = document.querySelector(".aboutMe");
 const picture = document.querySelectorAll(".myImage");
@@ -13,6 +9,8 @@ const projects = document.querySelector("#projects");
 const contact = document.querySelector("#contact");
 const underline = document.querySelectorAll("div .anim")
 const skillTable = document.querySelector("#skill-table");
+const navA = document.querySelectorAll("li a"); 
+const home = document.querySelector("#home");
 // Y Offsets
 const navSticky = navBar.offsetTop;
 const aboutMeY = aboutMe.offsetTop;
@@ -22,84 +20,91 @@ const skillsY = skills.offsetTop;
 const projectsY = projects.offsetTop;
 const contactY = contact.offsetTop;
 const skillTableY = skillTable.offsetTop;
+const homeY = home.offsetTop;
 
-contactButton.addEventListener("click",()=>{
-    form.style.visibility = "visible";
-    setTimeout(()=>{
-        form.style.opacity = "1";          
-    },10);
-    
-    form.style.display = "flex";  
-    contactButton.style.display ="none";
+const navHeight = 64;
+let winHeight;
 
-});
-closeButton.addEventListener("click",()=>{
-    form.style.visibility ="hidden";
-    setTimeout(()=>{
-        form.style.display = "none";        
-        contactButton.style.display = "flex";
-    },200);
-    form.style.opacity = "0";
-   
-    
-});
-textArea.addEventListener("input", ()=>{
-    let scrollLeft = window.pageXOffset ||
-   (document.documentElement || document.body.parentNode || document.body).scrollLeft;
+tsParticles
+  .loadJSON("tsparticles", "js/preset.json");
 
-    let scrollTop  = window.pageYOffset ||
-   (document.documentElement || document.body.parentNode || document.body).scrollTop;
-    textArea.style.height = "0px";
-    textArea.style.height =(textArea.scrollHeight) - 15 +"px";
-    window.scrollTo(scrollLeft, scrollTop);
-});
-
-const checkY = ()=>{    
-    if(window.pageYOffset >= navSticky){
+window.addEventListener('scroll', ()=>{    
+    winHeight = window.pageYOffset;
+    if(winHeight >= navSticky){
         navBar.classList.add("sticky");
     }else{
         navBar.classList.remove("sticky");
     }
-    if(window.pageYOffset >= aboutMeY - 800){
+    if(winHeight >= aboutMeY - 800){
         aboutMe.style.visibility = "visible";   
         aboutMe.style.animation = "panel-right-animation 1s ease, fade-in 2s ease";
         picture[0].style.visibility = "visible";
         picture[0].style.animation = "panel-left-animation 1s ease, fade-in 2s ease";
     }
-    if(window.pageYOffset >= educationY - 800){
+    if(winHeight >= educationY - 800){
         education.style.visibility = "visible";   
         education.style.animation = "panel-left-animation 1s ease, fade-in 2s ease";
         picture[1].style.visibility = "visible";
         picture[1].style.animation = "panel-right-animation 1s ease, fade-in 2s ease";
     }
-    if(window.pageYOffset >= aboutY - 800){
+    if(winHeight >= aboutY - 800){
         underline[0].style.visibility = "visible";   
         underline[0].style.animation = "panel-left-animation 1s ease, fade-in 2s ease";
         underline[1].style.visibility = "visible";   
         underline[1].style.animation = "panel-right-animation 1s ease, fade-in 2s ease";
     }
     
-    if(window.pageYOffset >= skillsY - 800){
+    if(winHeight >= skillsY - 800){
         underline[2].style.visibility = "visible";   
         underline[2].style.animation = "panel-left-animation 1s ease, fade-in 2s ease";
         underline[3].style.visibility = "visible";   
         underline[3].style.animation = "panel-right-animation 1s ease, fade-in 2s ease";
+        setTimeout(()=>{
+            skillTable.style.visibility = "visible";
+            skillTable.style.animation = "fade-in 2s ease";
+        },900);
     }
-    if(window.pageYOffset >= projectsY - 800){
+    if(winHeight >= projectsY - 800){
         underline[4].style.visibility = "visible";   
         underline[4].style.animation = "panel-left-animation 1s ease, fade-in 2s ease";
         underline[5].style.visibility = "visible";   
         underline[5].style.animation = "panel-right-animation 1s ease, fade-in 2s ease";
     }
-    if(window.pageYOffset >= contactY - 800){
+    if(winHeight >= contactY - 800){
         underline[6].style.visibility = "visible";   
         underline[6].style.animation = "panel-left-animation 1s ease, fade-in 2s ease";
         underline[7].style.visibility = "visible";   
         underline[7].style.animation = "panel-right-animation 1s ease, fade-in 2s ease";
     }
-    if(window.pageYOffset >= skillTableY - 800){
-        skillTable.style.visibility = "visible";
-        skillTable.style.animation = "fade-in 2s ease";
-    }
-}
-window.addEventListener('scroll', checkY);
+    if(winHeight >= homeY && winHeight < aboutY - navHeight && navA[0].classList.value !== "active"){
+        navA[0].classList.add("active");
+        navA[1].classList.remove("active");
+        navA[2].classList.remove("active");
+        navA[3].classList.remove("active");
+        navA[4].classList.remove("active");
+    }else if(winHeight >= aboutY - navHeight && winHeight < skillsY - navHeight && navA[1].classList.value !== "active"){
+        navA[0].classList.remove("active");
+        navA[1].classList.add("active");
+        navA[2].classList.remove("active");
+        navA[3].classList.remove("active");
+        navA[4].classList.remove("active");
+    } else if(winHeight >= skillsY - navHeight && winHeight <   projectsY - navHeight && navA[2].classList.value !== "active"){
+        navA[0].classList.remove("active");
+        navA[1].classList.remove("active");
+        navA[2].classList.add("active");
+        navA[3].classList.remove("active");
+        navA[4].classList.remove("active");
+    } else if(winHeight >= projectsY - navHeight && (window.innerHeight + winHeight) < document.body.offsetHeight && navA[3].classList.value !== "active"){
+        navA[0].classList.remove("active");
+        navA[1].classList.remove("active");
+        navA[2].classList.remove("active");
+        navA[3].classList.add("active");
+        navA[4].classList.remove("active");
+    } else if((window.innerHeight + winHeight) >= document.body.offsetHeight && navA[4].classList.value !== "active") {
+        navA[0].classList.remove("active");
+        navA[1].classList.remove("active");
+        navA[2].classList.remove("active");
+        navA[3].classList.remove("active");
+        navA[4].classList.add("active");
+    } 
+});

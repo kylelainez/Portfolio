@@ -7,10 +7,11 @@
     <link rel="stylesheet" href="css/style.css">
     <link href="//db.onlinewebfonts.com/c/23c0fcab84d99da0de762de7e220a6e1?family=Europa" rel="stylesheet" type="text/css"/>
     <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tsparticles/1.17.6/tsparticles.js" integrity="sha512-JZLDCwLQmvZe6hFbn6CUH2CApa8FlULqSyzw8JIzcZWaGyAw2Cj6VgTwF/Omze7vMmFoEP8eYjmfA8t3EByb8g==" crossorigin="anonymous"></script>
 </head>     
 <body>
-
     <div class="intro" id="home"> 
+        <div id="tsparticles"></div>
         <p class="intro-paragraph">
             Hello, I'm <span style="color: var(--color-6)">Kyle Adrian Lainez</span>. <br>
             <span class=""> Welcome to my website. </span>
@@ -90,13 +91,13 @@
                 <img src="Test/chosenLAINEZ_KYLE_ADRIAN_A_C08@2x.png" class="myImage">
             </div>
         </div>
-        <div id="skills" class="content">
+        <div id="skills" class="content contact-title">
             <div class="flex-col center-col">
                 <h1>Skills</h1>
                 <div class="flex center-row">
-                    <div class="bottom-line black-line anim">
+                    <div class="bottom-line anim">
                     </div>
-                    <div class="bottom-line black-line anim">
+                    <div class="bottom-line anim">
                     </div>
                 </div>
             </div>  
@@ -282,7 +283,7 @@
                             </a>
                         </div>
                         <div class="description">
-                            A simple website that can be used to track your expenses.
+                            A simple website that can be used to track your expenses. This uses the Cloud Firestore of Firebase as database.
                         </div>
                     </div>
                     <div class="flex-col">
@@ -313,34 +314,6 @@
                     </div>
                 </div>
             </div> 
-            <div class="contact-me-button" id="button">
-                <div class="send">
-                    Send a Message
-                </div>
-            </div>
-            <div class="flex center-row" id="contact-form">
-                <form class="flex-col" id="form" method="POST" action="/">
-                    <div class="flex center-row" id="name-email">
-                        <div class="flex-col holder">
-                            <label for="name">Name:</label>
-                            <input type="text" name="name" id="name" autocomplete="off" required>
-                        </div>
-                        <div class="flex-col holder">
-                            <label for="email">Email:</label>
-                            <input pattern="[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" type="email" name="email" id="email" autocomplete="off" required>
-                        </div>
-                    </div>
-                    <div class="flex-col" id="message-div">
-                        <label for="message">Message:</label>
-                        <textarea type="text" name="message" id="message" autocomplete="off" required></textarea>
-                    </div>
-                    <div class="flex justify width">
-                        <input type="submit" id="submit">
-                        <button id="close">Close</button>
-                    </div>
-                        
-                </form>
-            </div>
             <div class="flex center-row contact-icons">
                 <a href="https://github.com/kylelainez/" target="_blank  ">
                     <div class="circle-border">
