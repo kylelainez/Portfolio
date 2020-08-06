@@ -11,6 +11,7 @@ const underline = document.querySelectorAll("div .anim")
 const skillTable = document.querySelector("#skill-table");
 const navA = document.querySelectorAll("li a"); 
 const home = document.querySelector("#home");
+const particles = document.querySelector("#tsparticles");
 // Y Offsets
 const navSticky = navBar.offsetTop;
 const aboutMeY = aboutMe.offsetTop;
@@ -25,8 +26,15 @@ const homeY = home.offsetTop;
 const navHeight = 64;
 let winHeight;
 
-tsParticles
-  .loadJSON("tsparticles", "js/preset.json");
+tsParticles.loadJSON("tsparticles", "js/preset.json");
+
+window.addEventListener('resize',()=>{
+    if(window.outerWidth >= 768){
+       particles.style.visibility ="visible";
+    }else{
+        particles.style.visibility ="hidden";
+    }
+});
 
 window.addEventListener('scroll', ()=>{    
     winHeight = window.pageYOffset;

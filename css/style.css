@@ -385,6 +385,9 @@ svg{
         .width{
             width: 320px;
         }
+        .height{
+            height: 350px;
+        }
     }
     .flex-sm{
         flex-flow: column;
@@ -408,6 +411,10 @@ svg{
     }
     .border-left{
         border: 0;
+        border-top: 1px solid #E6ECF8;
+    }
+    .intern{
+        padding-right: 30px;
     }
 }
 
