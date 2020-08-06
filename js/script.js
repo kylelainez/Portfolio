@@ -26,14 +26,19 @@ const homeY = home.offsetTop;
 const navHeight = 64;
 let winHeight;
 
+const particlesVisibility = (width)=>{
+    if(width >= 768){
+        particles.style.visibility ="visible";
+     }else{
+        particles.style.visibility ="hidden";
+     }
+}
+
 tsParticles.loadJSON("tsparticles", "js/preset.json");
+particlesVisibility(window.outerWidth);
 
 window.addEventListener('resize',()=>{
-    if(window.outerWidth >= 768){
-       particles.style.visibility ="visible";
-    }else{
-        particles.style.visibility ="hidden";
-    }
+    particlesVisibility(window.outerWidth);
 });
 
 window.addEventListener('scroll', ()=>{    
