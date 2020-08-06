@@ -9,7 +9,8 @@
     --color-7: #e31b6d;
     font-family: 'Europa', sans-serif;
     font-style: normal;
-}
+    --max-width: 1200px;
+}   
 body{
     margin: 0;
     padding: 0;
@@ -29,7 +30,6 @@ body{
     color:var(--color-2);
     font-size: 2.5rem;
     text-align: center;
-    /* background-color: white; */
     z-index: 1;
 }
 .myName{
@@ -53,9 +53,10 @@ body{
 nav{ 
     height: 1.75rem;
     padding-bottom: 2rem;
+    top: 0;
 }
 .nav-ul{
-    max-width: 1200px;
+    max-width: var(--max-width);
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -91,7 +92,6 @@ li a:hover{
 }
 .active{
     color: var(--color-6);
-    /* border-bottom: 3px solid var(--color-6); */
 }
 
 
@@ -100,8 +100,8 @@ li a:hover{
     display: flex;
     flex-flow: row;
     align-items: center;
-    max-width: 1200px;
-    padding: 20px 150px;
+    max-width: var(--max-width);
+    padding: 20px 0px;
     width: 100%;
 }
 .flex-col{
@@ -289,7 +289,7 @@ svg{
     padding-top: 5px;
 }
 .contact-icons{
-    max-width: 1200px;
+    max-width: var(--max-width);
     width: 100px;
 }
 .contact-me-button{
@@ -359,3 +359,55 @@ svg{
         opacity: 1;
     }
 }
+
+
+
+@media screen and (max-width: 1200px){
+    :root{
+        --max-width: 800px; 
+    }
+}
+
+@media screen and (max-width: 800px){
+    :root{
+        --max-width:600px;
+    }
+    @media screen and (max-width:600px){
+        :root{
+            --max-width:400px;
+        } 
+    }
+    @media screen and (max-width:400px){
+        :root{
+            font-size: 13px;
+            --max-width:320px;
+        }
+        .width{
+            width: 320px;
+        }
+    }
+    .flex-sm{
+        flex-flow: column;
+        width: 100%;
+        align-items: center;
+    }
+    .myImage{
+        align-self: center;
+        width: 250px;
+        padding-top: 10px;
+    }
+    .nav-ul{
+        display: none;
+    }
+    .no-pad-sm{
+        padding-right: 0;
+        padding-left: 0;
+    }
+    .text{
+        text-align: center;
+    }
+    .border-left{
+        border: 0;
+    }
+}
+
