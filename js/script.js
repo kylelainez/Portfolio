@@ -35,10 +35,10 @@ const particlesVisibility = (width)=>{
 }
 
 tsParticles.loadJSON("tsparticles", "js/preset.json");
-particlesVisibility(window.outerWidth);
+particlesVisibility(window.innerWidth);
 
 window.addEventListener('resize',()=>{
-    particlesVisibility(window.outerWidth);
+    particlesVisibility(window.innerWidth);
 });
 
 window.addEventListener('scroll', ()=>{    
