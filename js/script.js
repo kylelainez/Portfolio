@@ -12,6 +12,8 @@ const skillTable = document.querySelector("#skill-table");
 const navA = document.querySelectorAll("li a"); 
 const home = document.querySelector("#home");
 const particles = document.querySelector("#tsparticles");
+const burger = document.querySelector(".menu-btn");
+const navul = document.querySelector(".nav-ul")
 // Y Offsets
 const navSticky = navBar.offsetTop;
 const aboutMeY = aboutMe.offsetTop;
@@ -25,30 +27,39 @@ const homeY = home.offsetTop;
 
 const navHeight = 64;
 let winHeight;
+let cliked = false;
+
+tsParticles.loadJSON("tsparticles", "js/preset.json");
 
 const particlesVisibility = (width)=>{
-    if(width >= 768){
+    if(width >= 800){
         particles.style.visibility ="visible";
      }else{
         particles.style.visibility ="hidden";
      }
 }
-
-tsParticles.loadJSON("tsparticles", "js/preset.json");
 particlesVisibility(window.innerWidth);
+
+
+burger.addEventListener('click',()=>{
+   navul.classList.toggle("nav-active");
+   burger.classList.toggle("open");
+});
 
 window.addEventListener('resize',()=>{
     particlesVisibility(window.innerWidth);
 });
 
-if(window.innerWidth >=1024){
-    window.addEventListener('scroll', ()=>{    
+
+if(screen.innerWidth >=1024){
+    window.addEventListener('scroll', ()=>{   
         winHeight = window.pageYOffset;
         if(winHeight >= navSticky){
             navBar.classList.add("sticky");
         }else{
             navBar.classList.remove("sticky");
         }
+        
         if(winHeight >= aboutMeY - 800){
             aboutMe.style.visibility = "visible";   
             aboutMe.style.animation = "panel-right-animation 1s ease, fade-in 2s ease";
@@ -136,6 +147,7 @@ if(window.innerWidth >=1024){
     underline[5].style.visibility = "visible";   
     underline[6].style.visibility = "visible";   
     underline[7].style.visibility = "visible"; 
+
     window.addEventListener('scroll', ()=>{    
         winHeight = window.pageYOffset;
         if(winHeight >= navSticky){
