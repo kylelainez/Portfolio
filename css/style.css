@@ -10,13 +10,16 @@
     font-family: 'Europa', sans-serif;
     font-style: normal;
     --max-width: 1200px;
+    scroll-behavior: smooth;
 }   
 body{
     margin: 0;
     padding: 0;
     overflow-x: hidden;
 }
-
+.content{
+    transition: 300ms ease;
+}
 
 /* Home */
 .intro{
@@ -144,7 +147,6 @@ li a:hover{
 .menu-btn.open .burger::after{
     transform: rotate(-45deg) translate(35px, 35px);
 }
-
 
 
 /* Flex Classes */
@@ -441,6 +443,14 @@ svg{
             height: 350px;
         }
     }
+    @media screen and (max-width:300px){
+        :root{
+            --max-width:260px;
+        } 
+        .width{
+            width: 260px;
+        }
+    }
     .flex-sm{
         flex-flow: column;
         width: 100%;
@@ -473,7 +483,7 @@ svg{
         margin-top: 68px;
         list-style-type: none;
         right: 0;
-        z-index: 99;
+        z-index: 1;
         flex-direction: column;
         width: auto;
         background-color: white;
@@ -485,8 +495,8 @@ svg{
         transform: translateX(100%);
         position: absolute;
     }
-    .menu-btn.open .flex-col.education{
-        animation: panel-right-animation 300ms ease;
+    .opacity{
+        opacity: 0.2;
     }
     .nav-ul li{
        padding-top: 20px;
@@ -498,4 +508,3 @@ svg{
         overflow-x: hidden;
     }
 }
-
