@@ -59,6 +59,7 @@ const checkNav = (height)=>{
     }
 }
 const checkNavA = (height)=>{
+    console.log(height);
     if(height >= homeY && height < aboutY - navHeight && navA[0].classList.value !== "active"){
         navA[0].classList.add("active");
         navA[1].classList.remove("active");
@@ -141,7 +142,6 @@ tsParticles.loadJSON("tsparticles", "js/preset.json");
 window.addEventListener('scroll', ()=>{   
     if(window.innerWidth>= 800){
         winHeight = window.pageYOffset;
-        console.log(`winHeight: ${winHeight} navSticky: ${navSticky}`);
         checkNav(winHeight);
         screenRatio = window.innerHeight/ 1.5;
         initialize();
@@ -180,7 +180,7 @@ window.addEventListener('scroll', ()=>{
                 underline[5].style.visibility = "visible";   
                 underline[5].style.animation = "panel-right-animation 1s ease, fade-in 2s ease";
             }
-            if(winHeight >= contactY - (screenRatio)){
+            if((window.innerHeight + winHeight) >= document.body.offsetHeight - screenRatio){
                 underline[6].style.visibility = "visible";   
                 underline[6].style.animation = "panel-left-animation 1s ease, fade-in 2s ease";
                 underline[7].style.visibility = "visible";   
@@ -202,8 +202,6 @@ window.addEventListener('scroll', ()=>{
             }
             isVisible = true;
         }
-        
-        console.log(`winHeight: ${winHeight} navSticky: ${navSticky}`);
         winHeight = window.pageYOffset;
         checkNav(winHeight);
         checkNavA(winHeight);
