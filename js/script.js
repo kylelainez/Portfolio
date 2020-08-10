@@ -29,12 +29,12 @@ let homeY;
 
 // Variables
 const navHeight = 64;
-let winHeight;  
+let winHeight = window.pageYOffset;  
 let screenRatio;
-
+let isVisible = false;
 // Methods
-const initialize = () =>{
-    navSticky = window.innerHeight;
+let initialize = () =>{
+    navSticky = window.outerHeight;
     aboutY = about.offsetTop;
     skillsY = skills.offsetTop;
     projectsY = projects.offsetTop;
@@ -95,6 +95,10 @@ const burgerClick = ()=>{
     navul.classList.toggle("nav-active");
     burger.classList.toggle("open");
     content.classList.toggle("opacity");
+    navul.classList.toggle("display");
+    if(navul.classList == "display"){
+        navul.classList.add('noDisplay');
+    }
 }
 
 // Event Listners
@@ -127,76 +131,81 @@ burger.addEventListener('click',burgerClick);
 window.addEventListener('resize',()=>{
     particlesVisibility(window.innerWidth);
     initialize();
+    console.log(window.innerWidth);
 });
 
 initialize();
 particlesVisibility(window.innerWidth);
 tsParticles.loadJSON("tsparticles", "js/preset.json");
 
-if(window.innerWidth >=800){
-    window.addEventListener('scroll', ()=>{   
+window.addEventListener('scroll', ()=>{   
+    if(window.innerWidth>= 800){
         winHeight = window.pageYOffset;
+        console.log(`winHeight: ${winHeight} navSticky: ${navSticky}`);
         checkNav(winHeight);
         screenRatio = window.innerHeight/ 1.5;
         initialize();
-
-        if(winHeight >= aboutMeY - (screenRatio)){
-            aboutMe.style.visibility = "visible";   
-            aboutMe.style.animation = "panel-right-animation 1s ease, fade-in 2s ease";
-            picture[0].style.visibility = "visible";
-            picture[0].style.animation = "panel-left-animation 1s ease, fade-in 2s ease";
-        }
-        if(winHeight >= educationY - (screenRatio)){
-            education.style.visibility = "visible";   
-            education.style.animation = "panel-left-animation 1s ease, fade-in 2s ease";
-            picture[1].style.visibility = "visible";
-            picture[1].style.animation = "panel-right-animation 1s ease, fade-in 2s ease";
-        }
-        if(winHeight >= aboutY - (screenRatio)){
-            underline[0].style.visibility = "visible";   
-            underline[0].style.animation = "panel-left-animation 1s ease, fade-in 2s ease";
-            underline[1].style.visibility = "visible";   
-            underline[1].style.animation = "panel-right-animation 1s ease, fade-in 2s ease";
-        }
-        if(winHeight >= skillsY - (screenRatio)){
-            underline[2].style.visibility = "visible";   
-            underline[2].style.animation = "panel-left-animation 1s ease, fade-in 2s ease";
-            underline[3].style.visibility = "visible";   
-            underline[3].style.animation = "panel-right-animation 1s ease, fade-in 2s ease";
-            setTimeout(()=>{
-                skillTable.style.visibility = "visible";
-                skillTable.style.animation = "fade-in 2s ease";
-            },900);
-        }
-        if(winHeight >= projectsY - (screenRatio)){
-            underline[4].style.visibility = "visible";   
-            underline[4].style.animation = "panel-left-animation 1s ease, fade-in 2s ease";
-            underline[5].style.visibility = "visible";   
-            underline[5].style.animation = "panel-right-animation 1s ease, fade-in 2s ease";
-        }
-        if(winHeight >= contactY - (screenRatio)){
-            underline[6].style.visibility = "visible";   
-            underline[6].style.animation = "panel-left-animation 1s ease, fade-in 2s ease";
-            underline[7].style.visibility = "visible";   
-            underline[7].style.animation = "panel-right-animation 1s ease, fade-in 2s ease";
+        if(!isVisible){
+            if(winHeight >= aboutMeY - (screenRatio)){
+                aboutMe.style.visibility = "visible";   
+                aboutMe.style.animation = "panel-right-animation 1s ease, fade-in 2s ease";
+                picture[0].style.visibility = "visible";
+                picture[0].style.animation = "panel-left-animation 1s ease, fade-in 2s ease";
+            }
+            if(winHeight >= educationY - (screenRatio)){
+                education.style.visibility = "visible";   
+                education.style.animation = "panel-left-animation 1s ease, fade-in 2s ease";
+                picture[1].style.visibility = "visible";
+                picture[1].style.animation = "panel-right-animation 1s ease, fade-in 2s ease";
+            }
+            if(winHeight >= aboutY - (screenRatio)){
+                underline[0].style.visibility = "visible";   
+                underline[0].style.animation = "panel-left-animation 1s ease, fade-in 2s ease";
+                underline[1].style.visibility = "visible";   
+                underline[1].style.animation = "panel-right-animation 1s ease, fade-in 2s ease";
+            }
+            if(winHeight >= skillsY - (screenRatio)){
+                underline[2].style.visibility = "visible";   
+                underline[2].style.animation = "panel-left-animation 1s ease, fade-in 2s ease";
+                underline[3].style.visibility = "visible";   
+                underline[3].style.animation = "panel-right-animation 1s ease, fade-in 2s ease";
+                setTimeout(()=>{
+                    skillTable.style.visibility = "visible";
+                    skillTable.style.animation = "fade-in 2s ease";
+                },900);
+            }
+            if(winHeight >= projectsY - (screenRatio)){
+                underline[4].style.visibility = "visible";   
+                underline[4].style.animation = "panel-left-animation 1s ease, fade-in 2s ease";
+                underline[5].style.visibility = "visible";   
+                underline[5].style.animation = "panel-right-animation 1s ease, fade-in 2s ease";
+            }
+            if(winHeight >= contactY - (screenRatio)){
+                underline[6].style.visibility = "visible";   
+                underline[6].style.animation = "panel-left-animation 1s ease, fade-in 2s ease";
+                underline[7].style.visibility = "visible";   
+                underline[7].style.animation = "panel-right-animation 1s ease, fade-in 2s ease";
+            }
         }
         checkNavA(winHeight);
-    });
-}else{
-    aboutMe.style.visibility = "visible";   
-    education.style.visibility = "visible";   
-    skillTable.style.visibility = "visible";
-    initialize();
-    for(let x=0; x<underline.length; x++){
-        underline[x].style.visibility = "visible";
-    }
-    for(let x=0; x<picture.length; x++){
-        picture[x].style.visibility = "visible";
-    }
-
-    window.addEventListener('scroll', ()=>{    
+    }else{
+        if(!isVisible){
+            aboutMe.style.visibility = "visible";   
+            education.style.visibility = "visible";   
+            skillTable.style.visibility = "visible";
+            initialize();
+            for(let x=0; x<underline.length; x++){
+                underline[x].style.visibility = "visible";
+            }
+            for(let x=0; x<picture.length; x++){
+                picture[x].style.visibility = "visible";
+            }
+            isVisible = true;
+        }
+        
+        console.log(`winHeight: ${winHeight} navSticky: ${navSticky}`);
         winHeight = window.pageYOffset;
         checkNav(winHeight);
         checkNavA(winHeight);
-    });
-}
+    }
+});

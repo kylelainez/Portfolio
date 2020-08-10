@@ -12,15 +12,17 @@
     --max-width: 1200px;
     scroll-behavior:smooth;
     transition: all 300ms ease-in-out;
+    overflow-x: hidden;
 }   
 body{
     margin: 0;
     padding: 0;
-    overflow-x: hidden;
     transition: all 300ms ease-in-out;
 }
 html{
     transition: all 300ms ease-in-out;
+    margin: 0;
+    padding: 0;
 }
 
 /* Home */
@@ -30,7 +32,8 @@ html{
     align-items: center;
     justify-content: center;
     height: 100vh;
-    overflow: hidden;
+    max-height: 100%;
+    width: 100%;
 }
 .intro-paragraph{
     color:var(--color-2);
@@ -43,8 +46,9 @@ html{
 }
 #tsparticles{
     position: absolute;
-    height: 100%;
+    height: 100vh;
     width: 100%;
+    top: 0; 
 }
 
 
@@ -97,10 +101,9 @@ li a:hover{
     position: fixed;
     top:0;
     width: 100%;
-    bottom: inherit;
 }
 .sticky + .content {
-    padding-top: 60px;
+    padding-top: 68px;
 }
 .active{
     color: var(--color-6);
@@ -500,31 +503,51 @@ svg{
         flex-direction: column;
         width: auto;
         background-color: #FFF;
-        height: 100vh;
+        height: calc(100vh - 68px);
         justify-content: flex-start;
-        align-content: flex-start;
-        width: 200px;
-        transition: 300ms ease-in-out;
-        transform: translateX(100%);
+        align-content: center;
         position: absolute;
-        padding: 0;
         box-shadow: 4px 10px 10px #111111;
+        padding: 0;
+        animation: burg-close 300ms ease;    
+        animation-fill-mode: forwards;
     }
     .opacity{
         opacity: 0.3;    
     }
     .nav-ul li{
-       margin-top: 16px;
-       padding-bottom: 15px;
+       margin-top: 2vh;
+       padding-bottom: 1vh;
        width: 100%;
-       /* border-bottom: 1px solid var(--color-6); */
        text-align: center;
        font-size: 2rem;
     }
     .nav-active{
-        transform: translateX(0%);
+        width: 40vw;
+        animation: burg-open 300ms ease;
+        opacity: 1;
     }
-    body{
-        overflow-x: hidden;
+    .display{
+        display: flex;
+    }
+    .noDisplay{
+        display: none;
+    }
+    @keyframes burg-open {
+        0%{
+            width: 0vw;
+        }
+        100%{
+            width: 40vw;
+        }
+    }
+    @keyframes burg-close {
+        from{
+            width: 40vw;
+        }
+        to{
+            width: 0vw;
+            display: none;
+        }
     }
 }
