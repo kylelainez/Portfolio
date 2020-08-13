@@ -49,7 +49,7 @@ const particlesVisibility = (width)=>{
         particles.style.display ="flex";
     }else{
         particles.style.display ="none";
-     }
+     }  
 }
 const checkNav = (height)=>{
     if(height >= navSticky){
@@ -101,27 +101,47 @@ const burgerClick = ()=>{
 navA[0].addEventListener('click',()=>{
     burgerClick();
     initialize();
-    window.scrollTo(0,homeY);
+    window.scrollTo({
+        top:homeY,
+        left: 0,
+        behavior: 'smooth'
+    });
 });
 navA[1].addEventListener('click',()=>{
     burgerClick();
     initialize();
-    window.scrollTo(0,aboutY - navHeight);
+    window.scrollTo({
+        top:aboutY - navHeight,
+        left: 0,
+        behavior: 'smooth'
+    });
 });
 navA[2].addEventListener('click',()=>{
     burgerClick();
     initialize();
-    window.scrollTo(0,skillsY - navHeight);
+    window.scrollTo({
+        top:skillsY - navHeight,
+        left: 0,
+        behavior: 'smooth'
+    });
 });
 navA[3].addEventListener('click',()=>{
     burgerClick();
     initialize();
-    window.scrollTo(0,projectsY - navHeight);
+    window.scrollTo({
+        top: projectsY - navHeight,
+        left: 0,
+        behavior: 'smooth'
+    });
 });
 navA[4].addEventListener('click',()=>{
     burgerClick();
     initialize();
-    window.scrollTo(0,contactY);
+    window.scrollTo({
+        top: contactY,
+        left: 0,
+        behavior: 'smooth'
+    });
 });
 burger.addEventListener('click',burgerClick);
 window.addEventListener('resize',()=>{
