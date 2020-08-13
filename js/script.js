@@ -46,9 +46,9 @@ let initialize = () =>{
 }
 const particlesVisibility = (width)=>{
     if(width >= 800){
-        particles.style.visibility ="visible";
+        particles.style.display ="flex";
     }else{
-        particles.style.visibility ="hidden";
+        particles.style.display ="none";
      }
 }
 const checkNav = (height)=>{

@@ -1,17 +1,10 @@
 :root{
     font-size: 16px;
-    --color-1: #0B0C10;
-    --color-2: #1F2833;
-    --color-3: #C5C6C7;
-    --color-4: #66FCF1;
-    --color-5: #45A29E;
-    --color-6: #7536ff;
-    --color-7: #e31b6d;
+    --primary-color: #7536ff;
     font-family: 'Nunito', sans-serif;
     font-style: normal;
     --max-width: 1200px;
-    scroll-behavior:smooth;
-    transition: all 300ms ease-in-out;
+    overflow-x: hidden;
 }   
 body{
     margin: 0;
@@ -35,13 +28,13 @@ html{
     width: 100%;
 }
 .intro-paragraph{
-    color:var(--color-2);
+    color:#000;
     font-size: 2.5rem;
     text-align: center;
     z-index: 1;
 }
 .myName{
-    color: var(--color-6);
+    color: var(--primary-color);
 }
 #tsparticles{
     position: absolute;
@@ -54,7 +47,7 @@ html{
 /* Navigation */
 .header{
     display: flex;
-    border-bottom: 4px solid var(--color-6);
+    border-bottom: 4px solid var(--primary-color);
     background-color: white;
     width: 100%;
     z-index: 1;
@@ -81,14 +74,14 @@ nav{
 li a{
     font-size: 1.75rem;
     text-decoration: none;
-    color: var(--color-2);
+    color: #000000;
     justify-self: center;
     transition: all 300ms ease-in-out;
     cursor: pointer;
     margin-right: 5rem;
 }
 li a:hover{
-    color: var(--color-6);
+    color: var(--primary-color);
 }
 .content{
     display: flex;
@@ -108,14 +101,14 @@ li a:hover{
     padding-top: 68px;
 }
 .active{
-    color: var(--color-6);
+    color: var(--primary-color);
 }
 .menu-btn{
     position: relative;
     height: 50px;
     width: 50px;
     cursor: pointer;
-    color: var(--color-6);
+    color: var(--primary-color);
     transition: 300ms ease-in-out;
     display: none;
     justify-content: center;
@@ -129,7 +122,7 @@ li a:hover{
     align-self: center;
     width: 40px;
     height: 5px;
-    background: var(--color-6);
+    background: var(--primary-color);
     border-radius: 5px;
     transition: 300ms ease-in-out;
 }
@@ -139,7 +132,7 @@ li a:hover{
     width: 40px;
     height: 5px;
     border-radius: 5px;
-    background-color: var(--color-6);
+    background-color: var(--primary-color);
     transition: 300ms ease-in-out;
 }
 .burger::before{
@@ -206,7 +199,7 @@ h1{
     position: relative;
     visibility: hidden;
     margin: 10px;
-    border: 3px solid var(--color-6);
+    border: 3px solid var(--primary-color);
     border-radius: 50px;
     align-self: center;
 }
@@ -231,7 +224,7 @@ h1{
     padding-left: 2rem;
 }
 .title{
-    color: var(--color-6);
+    color: var(--primary-color);
     font-size: 1.5rem;
     padding-bottom: 30px;
     padding-top: 20px;
@@ -250,7 +243,7 @@ b{
 
 /* Skills */
 #skills{
-    background-color: var(--color-6);
+    background-color: var(--primary-color);
 }
 .height{
     height: 400px;
@@ -306,7 +299,7 @@ svg{
     padding-left: 1.8px;
 }
 .circle{
-    background-color: var(--color-6);
+    background-color: var(--primary-color);
     height: 23px;
     width: 23px;
     border-radius: 50%;
@@ -319,13 +312,13 @@ svg{
     transform: rotate(360deg);
 }
 .circle:hover svg{
-    fill: var(--color-6);
+    fill: var(--primary-color);
 }
 
 
 /* Contact Me */
 #contact{
-    background-color: var(--color-6);
+    background-color: var(--primary-color);
 }
 .contact-title{
     color: #FFF;
@@ -343,7 +336,7 @@ svg{
     background-color: white;
 }
 .circle-border:hover svg{
-    fill: var(--color-6);
+    fill: var(--primary-color);
 }
 .contact-svg-git{
     height: 30px;
@@ -389,7 +382,7 @@ svg{
     background-color: white;
 }
 .contact-me-button:hover .send{
-    color: var(--color-6);
+    color: var(--primary-color);
 }
 
 .copyright{
@@ -422,7 +415,7 @@ svg{
 }
 .resume:hover{
     background-color: white;
-    color: var(--color-6);
+    color: var(--primary-color);
 }
 @keyframes panel-right-animation{
     from{
