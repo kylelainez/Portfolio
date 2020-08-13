@@ -7,12 +7,11 @@
     --color-5: #45A29E;
     --color-6: #7536ff;
     --color-7: #e31b6d;
-    font-family: 'Europa', sans-serif;
+    font-family: 'Nunito', sans-serif;
     font-style: normal;
     --max-width: 1200px;
     scroll-behavior:smooth;
     transition: all 300ms ease-in-out;
-    overflow-x: hidden;
 }   
 body{
     margin: 0;
@@ -68,14 +67,16 @@ nav{
     right: 0;
     width: 100%; 
     display: flex;
-    justify-content: space-between;
+    max-width: var(--max-width);
+    justify-content: flex-start;
 }
 .nav-ul{
     max-width: var(--max-width);
     width: 100%;
     display: flex;
     list-style-type: none;
-    justify-content: space-evenly;
+    justify-content: flex-start;
+    padding: 0;
 }
 li a{
     font-size: 1.75rem;
@@ -84,6 +85,7 @@ li a{
     justify-self: center;
     transition: all 300ms ease-in-out;
     cursor: pointer;
+    margin-right: 5rem;
 }
 li a:hover{
     color: var(--color-6);
@@ -147,14 +149,13 @@ li a:hover{
     transform: translateY(14px);
 }
 .menu-btn.open .burger{
-    transform: translateX(-50px);
     background-color: transparent;
 }
 .menu-btn.open .burger::before{
-    transform: rotate(-45deg) translate(35px, 35px);
+    transform: rotate(-45deg);
 }
 .menu-btn.open .burger::after{
-    transform: rotate(45deg) translate(35px, -35px);
+    transform: rotate(45deg);
 }
 
 
@@ -195,14 +196,19 @@ h1{
     font-size: 3rem;
     text-align:center;
     flex: 100%;
-    padding-bottom: 0;
-    margin-bottom: 0;
+    /* padding: 0; */
+    padding-top: 20px;
+    margin: 0;
 }
 .myImage{
     width: 350px;
     height: 100%;
     position: relative;
     visibility: hidden;
+    margin: 10px;
+    border: 3px solid var(--color-6);
+    border-radius: 50px;
+    align-self: center;
 }
 .aboutMe{
     position: relative;
@@ -211,6 +217,8 @@ h1{
     line-height: 2rem;
     padding-left: 2rem;
     visibility: hidden;
+    align-self: center;
+    margin: 0;
 }
 .thumbnail{
     width: 100px;
@@ -235,6 +243,8 @@ b{
 .education{
     position: relative;
     visibility: hidden;
+    align-self: center;
+    width: 100%;
 }
 
 
@@ -400,6 +410,20 @@ svg{
 .visible{
     visibility: visible;
 }
+.resume{
+    text-decoration: none;
+    color: white;
+    font-size: 1.5rem;
+    border: 2px solid white;
+    border-radius: 200px;
+    padding: 1rem;
+    font-weight: 500;
+    margin-bottom: 35px;
+}
+.resume:hover{
+    background-color: white;
+    color: var(--color-6);
+}
 @keyframes panel-right-animation{
     from{
         right: -300px;
@@ -474,7 +498,6 @@ svg{
     .myImage{
         align-self: center;
         width: 250px;
-        padding-top: 10px;
     }
     .no-pad-sm{
         padding-right: 0;
@@ -490,6 +513,7 @@ svg{
     }
     .intern{
         padding-right: 30px;
+        align-self: flex-start;
     }
     .menu-btn{
         display: flex;
@@ -498,10 +522,9 @@ svg{
     .nav-ul{
         margin-top: 68px;
         list-style-type: none;
-        right: 0;
         z-index: 1;
+        right: 0;
         flex-direction: column;
-        width: auto;
         background-color: #FFF;
         height: calc(100vh - 68px);
         justify-content: flex-start;
@@ -509,8 +532,9 @@ svg{
         position: absolute;
         box-shadow: 4px 10px 10px #111111;
         padding: 0;
-        animation: burg-close 300ms ease;    
-        animation-fill-mode: forwards;
+        width: 0;
+        transition: width 300ms ease;
+        overflow-x: hidden;
     }
     .opacity{
         opacity: 0.3;    
@@ -522,32 +546,10 @@ svg{
        text-align: center;
        font-size: 2rem;
     }
+    li a{
+        margin-right: 0;
+    }
     .nav-active{
         width: 40vw;
-        animation: burg-open 300ms ease;
-        opacity: 1;
-    }
-    .display{
-        display: flex;
-    }
-    .noDisplay{
-        display: none;
-    }
-    @keyframes burg-open {
-        0%{
-            width: 0vw;
-        }
-        100%{
-            width: 40vw;
-        }
-    }
-    @keyframes burg-close {
-        from{
-            width: 40vw;
-        }
-        to{
-            width: 0vw;
-            display: none;
-        }
     }
 }

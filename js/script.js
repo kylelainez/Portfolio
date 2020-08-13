@@ -34,7 +34,7 @@ let screenRatio;
 let isVisible = false;
 // Methods
 let initialize = () =>{
-    navSticky = window.outerHeight;
+    navSticky = window.innerHeight;
     aboutY = about.offsetTop;
     skillsY = skills.offsetTop;
     projectsY = projects.offsetTop;
@@ -96,10 +96,6 @@ const burgerClick = ()=>{
     navul.classList.toggle("nav-active");
     burger.classList.toggle("open");
     content.classList.toggle("opacity");
-    navul.classList.toggle("display");
-    if(navul.classList == "display"){
-        navul.classList.add('noDisplay');
-    }
 }
 
 // Event Listners
@@ -171,7 +167,7 @@ window.addEventListener('scroll', ()=>{
                 underline[3].style.animation = "panel-right-animation 1s ease, fade-in 2s ease";
                 setTimeout(()=>{
                     skillTable.style.visibility = "visible";
-                    skillTable.style.animation = "fade-in 2s ease";
+                    skillTable.style.animation = "fade-in 1s ease";
                 },900);
             }
             if(winHeight >= projectsY - (screenRatio)){
