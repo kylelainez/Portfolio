@@ -59,7 +59,6 @@ const checkNav = (height)=>{
     }
 }
 const checkNavA = (height)=>{
-    console.log(height);
     if(height >= homeY && height < aboutY - navHeight && navA[0].classList.value !== "active"){
         navA[0].classList.add("active");
         navA[1].classList.remove("active");
@@ -128,7 +127,6 @@ burger.addEventListener('click',burgerClick);
 window.addEventListener('resize',()=>{
     particlesVisibility(window.innerWidth);
     initialize();
-    console.log(window.innerWidth);
 });
 
 initialize();
