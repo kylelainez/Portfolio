@@ -17,6 +17,9 @@
             Hello, I'm <span style="color: var(--primary-color)">Kyle Adrian Lainez</span>. <br>
             <span class=""> Welcome to my website. </span>
         </p>
+        <a href="Assets/Lainez, Kyle Adrian A. - Resume.pdf" class="resume" target="_blank">
+            View Resume
+        </a>
     </div>
     <!-- Navigation Bar -->
     <div class="header" id="nav-bar">
@@ -75,7 +78,7 @@
                     <div class="title">
                         Internships
                     </div>
-                    <div class="flex flex-no-pad flex-sm">
+                    <div class="flex flex-no-pad flex-sm intern-parent">
                         <div class="intern">
                             <b>IT Support<br></b>
                             Specified Contractors and Development Inc.<br>
@@ -317,9 +320,29 @@
                     </div>
                 </div>
             </div> 
-            <a href="Assets/Lainez, Kyle Adrian A. - Resume.pdf" class="resume" target="_blank">
-                View Resume
-            </a>
+            <div class="flex-col center-col">
+                <div class="contact-button" id="button">
+                    Send a Message
+                </div>
+                <form class="flex-col center-col" id="form" name="contact" netlify>
+                    <div class="flex center-row" id="name-email">
+                        <div class="flex-col holder">
+                            <label for="name">Name:</label>
+                            <input type="text" name="name" id="name" autocomplete="off" required>
+                        </div>
+                        <div class="flex-col holder">
+                            <label for="email">Email:</label>
+                            <input type="email" name="email" id="email" autocomplete="off" required>
+                        </div>
+                    </div>
+                    <div class="flex-col center-col" id="message-div">
+                        <label for="message">Message:</label>
+                        <textarea type="text" name="message" id="message" autocomplete="off" required></textarea>
+                    </div>
+                    <input type="submit" id="submit">
+                </form>
+            </div>
+            
             <div class="flex center-row contact-icons">
                 <a href="https://github.com/kylelainez/" target="_blank  ">
                     <div class="circle-border">
@@ -345,7 +368,7 @@
         </div>
     </div>
     
-
+    <script defer src="https://unpkg.com/smoothscroll-polyfill@0.4.4/dist/smoothscroll.min.js"></script>
     <script src="js/script.js"></script>
 </body>
 

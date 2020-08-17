@@ -15,7 +15,10 @@ const particles = document.querySelector("#tsparticles");
 const burger = document.querySelector(".menu-btn");
 const navul = document.querySelector(".nav-ul")
 const content = document.querySelector(".content");
-
+const contactMe = document.querySelector(".contact-button")
+const form = document.querySelector("form");
+const cancelButton = document.querySelector("#cancel");
+const textArea = document.querySelector("textarea");
 // Y Offsets
 let navSticky;
 let aboutMeY;
@@ -45,7 +48,7 @@ let initialize = () =>{
     aboutMeY = aboutMe.offsetTop;
 }
 const particlesVisibility = (width)=>{
-    if(width >= 800){
+    if(width > 768){
         particles.style.display ="flex";
     }else{
         particles.style.display ="none";
@@ -97,6 +100,10 @@ const burgerClick = ()=>{
     content.classList.toggle("opacity");
 }
 
+initialize();
+particlesVisibility(window.innerWidth);
+tsParticles.loadJSON("tsparticles", "js/preset.json");
+
 // Event Listners
 navA[0].addEventListener('click',()=>{
     burgerClick();
@@ -141,17 +148,23 @@ navA[4].addEventListener('click',()=>{
         top: contactY,
         left: 0,
         behavior: 'smooth'
-    });
+    }); 
 });
 burger.addEventListener('click',burgerClick);
 window.addEventListener('resize',()=>{
     particlesVisibility(window.innerWidth);
     initialize();
 });
-
-initialize();
-particlesVisibility(window.innerWidth);
-tsParticles.loadJSON("tsparticles", "js/preset.json");
+contactMe.addEventListener('click', ()=>{
+    contactMe.classList.add('clicked');
+    setTimeout(()=>{
+        form.classList.add('form-open');
+    },300);
+});
+textArea.addEventListener('input',()=>{
+    textArea.style.height = 'auto';
+    textArea.style.height = (textArea.scrollHeight - 16) + 'px';
+})
 
 window.addEventListener('scroll', ()=>{   
     if(window.innerWidth>= 800){
