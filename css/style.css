@@ -426,7 +426,7 @@ form{
     background-color: white;
     max-height: 0;
     overflow: hidden;
-    transition: max-height ease 600ms;
+    transition: max-height ease 1s;
     border-radius: 20px;
     justify-content: space-between; 
     align-content: flex-start;
@@ -435,10 +435,9 @@ form{
 }
 .form-open{
     margin: 0;
-    max-height: 500px;
+    max-height: 2000px;
 }
 #name-email{
-    /* width: 800px; */
     padding: 20px;
 }
 .holder{
@@ -487,6 +486,8 @@ button:hover, #submit:hover{
     background-color: var(--primary-color);
 }
 
+
+/* Scroll Bar */
 ::-webkit-scrollbar{
     width: 9px;
     background-color: white;
@@ -542,31 +543,6 @@ button:hover, #submit:hover{
 @media screen and (max-width: 768px){
     :root{
         --max-width:600px;
-    }
-    @media screen and (max-width:600px){
-        :root{
-            --max-width:400px;
-        } 
-    }
-    @media screen and (max-width:400px){
-        :root{
-            font-size: 13px;
-            --max-width:300px;
-        }
-        .width{
-            width: 300px;
-        }
-        .height{
-            height: 350px;
-        }
-    }
-    @media screen and (max-width:300px){
-        :root{
-            --max-width:260px;
-        } 
-        .width{
-            width: 260px;
-        }
     }
     .flex-sm{
         flex-flow: column;
@@ -627,5 +603,41 @@ button:hover, #submit:hover{
     .nav-active{
         width: 40vw;
     }
-    
+    #name, #email, textarea{
+        width: 400px;
+    } 
+    @media screen and (max-width:600px){
+        :root{
+            --max-width:400px;
+        } 
+        #name, #email, textarea{
+            width: 300px;
+        } 
+    }
+    @media screen and (max-width:400px){
+        :root{
+            font-size: 13px;
+            --max-width:300px;
+        }   
+        .width{
+            width: 300px;
+        }
+        .height{
+            height: 350px;
+        }
+        #name, #email, textarea{
+            width: 200px;
+        } 
+    }
+    @media screen and (max-width:300px){
+        :root{
+            --max-width:260px;
+        } 
+        .width{
+            width: 260px;
+        }
+        #name, #email, textarea{
+            width: 150px;
+        } 
+    }
 }

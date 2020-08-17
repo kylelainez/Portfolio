@@ -163,7 +163,7 @@ contactMe.addEventListener('click', ()=>{
 });
 textArea.addEventListener('input',()=>{
     textArea.style.height = 'auto';
-    textArea.style.height = (textArea.scrollHeight - 16) + 'px';
+    textArea.style.height = (textArea.scrollHeight) + 'px';
 })
 
 window.addEventListener('scroll', ()=>{   
